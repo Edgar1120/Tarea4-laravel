@@ -11,12 +11,15 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
- //hola 
+ 
    
-    public function boot()
-{
-    if (config('app.env') === 'production') {
-        URL::forceScheme('https');
+    public function boot(): void
+    {
+        // Fuerza siempre HTTPS en producción
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
+
+        Vite::prefetch(concurrency: 3);
     }
-}
 }
