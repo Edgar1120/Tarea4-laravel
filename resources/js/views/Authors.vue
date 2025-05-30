@@ -1,6 +1,7 @@
 <template>
   
     <div class="container mt-4">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"></link>
         <div v-if="view === 'index'">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>Autores</h2>
@@ -27,11 +28,21 @@
                             <td>{{ author.nationality }}</td>
                             <td>{{ author.birth_year }}</td>
                             <td>{{ author.fields }}</td>
-                            <td>
-                                <button class="btn btn-info btn-sm" @click="showAuthor(author.id)">👁 Ver</button>
-                                <button class="btn btn-warning btn-sm" @click="editAuthor(author)">✏️ Editar</button>
-                                <button class="btn btn-danger btn-sm" @click="deleteAuthor(author.id)">🗑 Eliminar</button>
+                           <td>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-outline-info btn-sm" @click="showAuthor(author.id)" title="Ver">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-warning btn-sm" @click="editAuthor(author)" title="Editar">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger btn-sm" @click="deleteAuthor(author.id)" title="Eliminar">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
                             </td>
+
+
                         </tr>
                         <tr v-if="authors.length === 0">
                             <td colspan="6" class="text-center">No hay autores registrados.</td>
