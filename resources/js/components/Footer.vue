@@ -6,7 +6,7 @@
     </footer>
 </template>
 
-<script setup>const currentYear = new Date().getFullYear() </script>
+<script setup>const currentYear = new Date().getFullYear(); </script>
 <style scoped>
 
 </style>
